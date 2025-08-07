@@ -43,12 +43,23 @@ function run(cmd, cmdArgs) {
 
 const argv = process.argv.slice(2);
 
-// 1) Prefer uvx if available
-if (hasExecutable("uvx")) {
+// 1) Prefer uvx/uv if available
+{
   const pkgVersion = process.env.MCP_ATLASSIAN_PYPI_VERSION;
   const spec = pkgVersion ? `mcp-atlassian==${pkgVersion}` : "mcp-atlassian";
-  run("uvx", [spec, ...argv]);
-  return;
+
+  if (hasExecutable("uvx")) {
+    // Use explicit form to run command from the package
+    // Avoids shells trying to resolve the binary name
+    run("uvx", ["--from", spec, "mcp-atlassian", ...argv]);
+    return;
+  }
+
+  if (hasExecutable("uv")) {
+    // Fallback to `uv x` if `uvx` shim is not present
+    run("uv", ["x", "--from", spec, "mcp-atlassian", ...argv]);
+    return;
+  }
 }
 
 // 2) Fallback to Docker if available
@@ -143,4 +154,3 @@ console.error(
     "Or install Docker: https://docs.docker.com/get-docker/"
 );
 process.exit(1);
-
