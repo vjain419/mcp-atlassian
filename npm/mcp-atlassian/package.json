@@ -1,6 +1,6 @@
 {
   "name": "@vjain419/mcp-atlassian",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "npx wrapper for the MCP Atlassian server (Jira + Confluence)",
   "bin": {
     "mcp-atlassian": "bin/mcp-atlassian.js"
@@ -33,4 +33,3 @@
     "atlassian"
   ]
 }
-
