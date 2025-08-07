@@ -1,0 +1,36 @@
+{
+  "name": "@vjain419/mcp-atlassian",
+  "version": "0.1.0",
+  "description": "npx wrapper for the MCP Atlassian server (Jira + Confluence)",
+  "bin": {
+    "mcp-atlassian": "bin/mcp-atlassian.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "license": "MIT",
+  "files": [
+    "bin",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vjain419/mcp-atlassian.git"
+  },
+  "homepage": "https://github.com/vjain419/mcp-atlassian",
+  "bugs": {
+    "url": "https://github.com/vjain419/mcp-atlassian/issues"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "jira",
+    "confluence",
+    "atlassian"
+  ]
+}
+
